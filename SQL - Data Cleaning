@@ -2,11 +2,11 @@ SELECT *
 FROM layoffs;
 
 
--- Create raw/staging data set
--- 1. Remove Duuplicates
--- 2. Standarsize the Data
--- 3. Look at the null or blank values
--- 4. Remove any unecessary columns
+1.Create raw/staging data set
+2. Remove Duuplicates
+3. Standarsize the Data
+4. Look at the null or blank values
+5. Remove any unecessary columns
 
 
 --  Duplicating the layoffs table schema to staging environment
@@ -41,11 +41,9 @@ SELECT *
 FROM layoffs_staging
 WHERE company = 'Casper';
 
-
 DELETE 
 FROM duplicate_cte
 WHERE row_num > 1;
-
 
 CREATE TABLE `layoffs_staging2` (
   `company` text,
